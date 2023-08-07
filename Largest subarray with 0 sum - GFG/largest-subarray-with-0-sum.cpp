@@ -16,13 +16,13 @@ class Solution{
        int sum = 0;
         int len = 0;
         unordered_map<int, int> mp;
-        
+        mp[0]=-1;
         for (int j = 0; j < n; ++j) {
             sum += A[j];
             
-            if (sum == 0) {
-                len = max(len, j + 1); // Subarray from index 0 to j has zero sum
-            }
+            // if (sum == 0) {
+            //     len = max(len, j + 1); // Subarray from index 0 to j has zero sum
+            // }
             
             if (mp.find(sum) == mp.end()) {
                 mp[sum] = j;
