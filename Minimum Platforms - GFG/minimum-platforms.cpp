@@ -15,24 +15,22 @@ class Solution{
     	// Your code here
     	sort(arr,arr+n);
     	sort(dep,dep+n);
-    	
-    	int i=0;
+    	int i=1;
     	int j=0;
+    	int count=1;
     	int maxi=0;
-    	int count=0;
-    	
     	while(i<n && j<n)
     	{
-    	    if(arr[i]<=dep[j])
+    	    if(arr[i]>dep[j])
     	    {
-    	        count++;
-    	        i++;
-    	        maxi=max(maxi,count);
+    	        j++;
+    	        count--;
     	    }
     	    else
     	    {
-    	        count--;
-    	        j++;
+    	        count++;
+    	        maxi=max(maxi,count);
+    	        i++;
     	    }
     	}
     	return maxi;
