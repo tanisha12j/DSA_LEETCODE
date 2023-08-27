@@ -14,19 +14,25 @@ class Solution{
   public:
     int missingNumber(vector<int>& array, int n) {
         // Your code goes here
-        int i=1;
-        int sum=0;
-        while(i<=n)
-        {
-            sum+=i;
-            i++;
-        }
-        int s=0;
-        for(auto i : array)
-        {
-            s+=i;
-        }
-        return sum-s;
+        
+         int xor_arr = 0;
+    int xor_N = 0;
+
+    // XOR all elements in the array
+    for (int i = 0; i < n - 1; ++i) {
+        xor_arr ^= array[i];
+    }
+
+    // XOR all numbers from 1 to N
+    for (int i = 1; i <= n; ++i) {
+        xor_N ^= i;
+    }
+
+    // The missing number is the XOR of xor_arr and xor_N
+    int missing_number = xor_arr ^ xor_N;
+
+    return missing_number;
+        
     }
 };
 
